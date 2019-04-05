@@ -1,0 +1,36 @@
+package com.codecolonist.MahanyaPhotography.Exception;
+
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.context.request.WebRequest;
+import org.springframework.web.servlet.NoHandlerFoundException;
+import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
+
+import com.codecolonist.MahanyaPhotography.bean.ApiError;
+
+@ControllerAdvice
+public class RestResponseEntityExceptionHandler  {
+	
+	
+	@ExceptionHandler(CustomException.class)
+	public final ResponseEntity<Object> CustomException(
+			CustomException ex,  WebRequest request) {
+	    String error = "No handler found for " ;
+	 
+	    ApiError apiError = new ApiError(HttpStatus.NOT_FOUND, ex.getLocalizedMessage(), error);
+	    return new ResponseEntity<Object>(apiError, new HttpHeaders(), apiError.getStatus());
+	}
+	
+	@ExceptionHandler(Exception.class)
+	public final ResponseEntity<Object> DefaultException(
+			Exception ex, WebRequest request) {
+	    String error = "No handler found for ";
+	 
+	    ApiError apiError = new ApiError(HttpStatus.NOT_FOUND, ex.getLocalizedMessage(), error);
+	    return new ResponseEntity<Object>(apiError, new HttpHeaders(), apiError.getStatus());
+	}
+
+}
