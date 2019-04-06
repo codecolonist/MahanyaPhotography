@@ -1,6 +1,7 @@
 package com.codecolonist.MahanyaPhotography.Repository;
 
 import java.sql.Timestamp;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -21,7 +22,7 @@ public class MP_User {
 		
 		private String password;
 		
-		private Timestamp create_time;
+		private Date create_time;
 		
 		private String firstname;
 		
@@ -29,7 +30,7 @@ public class MP_User {
 		
 		private String phone;
 		
-		private Timestamp lastlogin;
+		private Date lastlogin;
 
 		public Integer getId() {
 			return id;
@@ -63,11 +64,11 @@ public class MP_User {
 			this.password = password;
 		}
 
-		public Timestamp getCreate_time() {
+		public Date getCreate_time() {
 			return create_time;
 		}
 
-		public void setCreate_time(Timestamp create_time) {
+		public void setCreate_time(Date create_time) {
 			this.create_time = create_time;
 		}
 
@@ -95,13 +96,14 @@ public class MP_User {
 			this.phone = phone;
 		}
 
-		public Timestamp getLastlogin() {
+		public Date getLastlogin() {
 			return lastlogin;
 		}
 
-		public void setLastlogin(Timestamp lastlogin) {
+		public void setLastlogin(Date lastlogin) {
 			this.lastlogin = lastlogin;
 		}
-		
+
+	
 		
 }

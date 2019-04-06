@@ -27,10 +27,12 @@ public class RegistrationController {
 	@RequestMapping(value="/register",method=RequestMethod.POST,consumes=MediaType.APPLICATION_JSON_VALUE,produces=MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody RegistrationResponse UserRegistration(@RequestBody RegistrationRequest registationRequest,HttpServletRequest servletRequest) throws Exception  {
 		
-		 
-		
-		RegistrationResponse registrationResponse = new RegistrationResponse();
-		
+		MP_User mpuser = new MP_User();		
+		mpuser=registationRequest.getMpuser();
+		mpuserrepo.save(mpuser);
+		RegistrationResponse registrationResponse = new RegistrationResponse();		
+		registrationResponse.setMpuser(mpuser);
+		registrationResponse.setStatus("success");		
 		return registrationResponse;
 		
 		
