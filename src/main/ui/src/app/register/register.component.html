@@ -3,13 +3,14 @@
     <form (ngSubmit)="onSubmit()" #regstore="ngForm">
         <div class="form-group">
             <label for="email">Email</label>
-            <input ngModel name="email" #domain="ngModel" class="form-control" id="email" [(ngModel)]="model.email">
+            <input ngModel name="email" #domain="ngModel" class="form-control" id="email" [(ngModel)]="model.email ">
             <br>
         </div>
         <div class="form-group">
             <label for="username">UserName</label>
-            <input ngModel name="username" #userId="ngModel" class="form-control" id="username" [(ngModel)]="model.username">
+            <input ngModel name="username" #userId="ngModel" class="form-control"   id="username" [(ngModel)]="model.username">
             <br>
+          
         </div>
         <div class="form-group">
             <label for="password">Password</label>
@@ -35,7 +36,7 @@
                         <br>
                     </div>
                     <div>
-                        <button type="button" class="btn btn-primary" (click)="registeruser(); regstore.reset()">Register</button>
+                        <button type="button" class="btn btn-primary" (click)="registeruser(); regstore.reset()" routerLink="/login">Register</button>
 
                         <!-- <p>
                             {{model | json}}
