@@ -9,7 +9,7 @@ import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.NoHandlerFoundException;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
-import com.codecolonist.MahanyaPhotography.bean.ApiError;
+import com.codecolonist.MahanyaPhotography.bean.ServiceStatus;
 
 @ControllerAdvice
 public class RestResponseEntityExceptionHandler  {
@@ -20,7 +20,7 @@ public class RestResponseEntityExceptionHandler  {
 			CustomException ex,  WebRequest request) {
 	    String error = "No handler found for " ;
 	 
-	    ApiError apiError = new ApiError(HttpStatus.NOT_FOUND, ex.getLocalizedMessage(), error);
+	    ServiceStatus apiError = new ServiceStatus(HttpStatus.NOT_FOUND, ex.getLocalizedMessage(), error);
 	    return new ResponseEntity<Object>(apiError, new HttpHeaders(), apiError.getStatus());
 	}
 	
@@ -29,7 +29,7 @@ public class RestResponseEntityExceptionHandler  {
 			Exception ex, WebRequest request) {
 	    String error = "No handler found for ";
 	 
-	    ApiError apiError = new ApiError(HttpStatus.NOT_FOUND, ex.getLocalizedMessage(), error);
+	    ServiceStatus apiError = new ServiceStatus(HttpStatus.NOT_FOUND, ex.getLocalizedMessage(), error);
 	    return new ResponseEntity<Object>(apiError, new HttpHeaders(), apiError.getStatus());
 	}
 

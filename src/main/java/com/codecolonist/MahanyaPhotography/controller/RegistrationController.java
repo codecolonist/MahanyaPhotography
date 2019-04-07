@@ -17,6 +17,7 @@ import com.codecolonist.MahanyaPhotography.Repository.MP_User;
 import com.codecolonist.MahanyaPhotography.Repository.MpUserRepository;
 import com.codecolonist.MahanyaPhotography.bean.RegistrationRequest;
 import com.codecolonist.MahanyaPhotography.bean.RegistrationResponse;
+import com.codecolonist.MahanyaPhotography.bean.ServiceStatus;
 
 @RestController
 public class RegistrationController {
@@ -30,9 +31,10 @@ public class RegistrationController {
 		MP_User mpuser = new MP_User();		
 		mpuser=registationRequest.getMpuser();
 		mpuserrepo.save(mpuser);
-		RegistrationResponse registrationResponse = new RegistrationResponse();		
-		registrationResponse.setMpuser(mpuser);
-		registrationResponse.setStatus("success");		
+		RegistrationResponse registrationResponse = new RegistrationResponse();
+		ServiceStatus serviceStatus = new ServiceStatus(HttpStatus.ACCEPTED,"Registration is successfully done!","");
+		registrationResponse.setLastName(mpuser.getLastname());	
+		registrationResponse.setServiceStatus(serviceStatus);
 		return registrationResponse;
 		
 		

@@ -5,19 +5,20 @@ import java.util.List;
 
 import org.springframework.http.HttpStatus;
 
-public class ApiError {
+public class ServiceStatus {
+	
 	  private HttpStatus status;
 	    private String message;
 	    private List<String> errors;
 	 
-	    public ApiError(HttpStatus status, String message, List<String> errors) {
+	    public ServiceStatus(HttpStatus status, String message, List<String> errors) {
 	        super();
 	        this.status = status;
 	        this.message = message;
 	        this.errors = errors;
 	    }
 	 
-	    public ApiError(HttpStatus status, String message, String error) {
+	    public ServiceStatus(HttpStatus status, String message, String error) {
 	        super();
 	        this.status = status;
 	        this.message = message;

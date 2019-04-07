@@ -1,27 +1,29 @@
 package com.codecolonist.MahanyaPhotography.bean;
 
-import com.codecolonist.MahanyaPhotography.Repository.MP_User;
 
 public class RegistrationResponse {
 
-	private MP_User mpuser;
-	private String status;
+	private String lastName;
+	private ServiceStatus serviceStatus;
 
-	public MP_User getMpuser() {
-		return mpuser;
+
+
+	public ServiceStatus getServiceStatus() {
+		return serviceStatus;
 	}
 
-	public void setMpuser(MP_User mpuser) {
-		this.mpuser = mpuser;
+	public void setServiceStatus(ServiceStatus serviceStatus) {
+		this.serviceStatus = serviceStatus;
 	}
 
-	public String getStatus() {
-		return status;
+	public String getLastName() {
+		return lastName;
 	}
 
-	public void setStatus(String status) {
-		this.status = status;
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
-	
+
+
 	
 }
