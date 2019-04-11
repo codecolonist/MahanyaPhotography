@@ -12,6 +12,7 @@ import { RegisterComponent } from './register/register.component';
 import { FormsModule }   from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
+import { HomeComponent } from './home/home.component';
 
 const appRoutes: Routes = [
 
@@ -26,7 +27,8 @@ const appRoutes: Routes = [
     ProfilepicComponent,
     AlbumsComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

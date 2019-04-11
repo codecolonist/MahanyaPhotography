@@ -119,7 +119,7 @@ var AppRoutingModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n<navbar></navbar>\n<profilepic></profilepic>\n<albums></albums>\n\n<router-outlet></router-outlet>\n"
+module.exports = "\n<navbar></navbar>\n<!--<profilepic></profilepic>-->\n<!--<albums></albums>-->\n<!--<register></register>-->\n<router-outlet></router-outlet>\n"
 
 /***/ }),
 
@@ -185,6 +185,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _navbar_navbar_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./navbar/navbar.component */ "./src/app/navbar/navbar.component.ts");
 /* harmony import */ var _profilepic_profilepic_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./profilepic/profilepic.component */ "./src/app/profilepic/profilepic.component.ts");
 /* harmony import */ var _albums_albums_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./albums/albums.component */ "./src/app/albums/albums.component.ts");
+/* harmony import */ var _login_login_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./login/login.component */ "./src/app/login/login.component.ts");
+/* harmony import */ var _register_register_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./register/register.component */ "./src/app/register/register.component.ts");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 
 
 
@@ -194,6 +199,15 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+
+
+
+var appRoutes = [
+    { path: 'register', component: _register_register_component__WEBPACK_IMPORTED_MODULE_10__["RegisterComponent"] },
+    { path: 'login', component: _login_login_component__WEBPACK_IMPORTED_MODULE_9__["LoginComponent"] }
+];
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -203,12 +217,18 @@ var AppModule = /** @class */ (function () {
                 _app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"],
                 _navbar_navbar_component__WEBPACK_IMPORTED_MODULE_6__["NavbarComponent"],
                 _profilepic_profilepic_component__WEBPACK_IMPORTED_MODULE_7__["ProfilepicComponent"],
-                _albums_albums_component__WEBPACK_IMPORTED_MODULE_8__["AlbumsComponent"]
+                _albums_albums_component__WEBPACK_IMPORTED_MODULE_8__["AlbumsComponent"],
+                _login_login_component__WEBPACK_IMPORTED_MODULE_9__["LoginComponent"],
+                _register_register_component__WEBPACK_IMPORTED_MODULE_10__["RegisterComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
                 _app_routing_module__WEBPACK_IMPORTED_MODULE_3__["AppRoutingModule"],
-                _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_5__["NgbModule"]
+                _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_5__["NgbModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_11__["FormsModule"],
+                _angular_common_http__WEBPACK_IMPORTED_MODULE_12__["HttpClientModule"],
+                _angular_router__WEBPACK_IMPORTED_MODULE_13__["RouterModule"].forRoot(appRoutes, { enableTracing: true } // <-- debugging purposes only
+                )
             ],
             providers: [],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"]]
@@ -221,6 +241,108 @@ var AppModule = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/login/login.component.html":
+/*!********************************************!*\
+  !*** ./src/app/login/login.component.html ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n<div class=\"container\">\n  <br>\n<h3>Login to MahanyaRam Photography</h3>\n<br>\n<form>\n    <div class=\"form-group\">\n      <label for=\"exampleInputEmail1\">Email address</label>\n      <input type=\"email\" class=\"form-control\" id=\"exampleInputEmail1\" aria-describedby=\"emailHelp\" placeholder=\"Enter email\">\n      <small id=\"emailHelp\" class=\"form-text text-muted\">We'll never share your email with anyone else.</small>\n    </div>\n    <div class=\"form-group\">\n      <label for=\"exampleInputPassword1\">Password</label>\n      <input type=\"password\" class=\"form-control\" id=\"exampleInputPassword1\" placeholder=\"Password\">\n    </div>\n    <div class=\"form-group form-check\">\n      <input type=\"checkbox\" class=\"form-check-input\" id=\"exampleCheck1\">\n      <label class=\"form-check-label\" for=\"exampleCheck1\">Check me out</label>\n    </div>\n    <button type=\"submit\" class=\"btn btn-primary\">Submit</button>\n  </form>\n\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/login/login.component.scss":
+/*!********************************************!*\
+  !*** ./src/app/login/login.component.scss ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2xvZ2luL2xvZ2luLmNvbXBvbmVudC5zY3NzIn0= */"
+
+/***/ }),
+
+/***/ "./src/app/login/login.component.ts":
+/*!******************************************!*\
+  !*** ./src/app/login/login.component.ts ***!
+  \******************************************/
+/*! exports provided: LoginComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginComponent", function() { return LoginComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+
+
+var LoginComponent = /** @class */ (function () {
+    function LoginComponent() {
+    }
+    LoginComponent.prototype.ngOnInit = function () {
+    };
+    LoginComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-login',
+            template: __webpack_require__(/*! ./login.component.html */ "./src/app/login/login.component.html"),
+            styles: [__webpack_require__(/*! ./login.component.scss */ "./src/app/login/login.component.scss")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+    ], LoginComponent);
+    return LoginComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/mp-api.service.ts":
+/*!***********************************!*\
+  !*** ./src/app/mp-api.service.ts ***!
+  \***********************************/
+/*! exports provided: MpApiService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MpApiService", function() { return MpApiService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+
+
+
+
+var MpApiService = /** @class */ (function () {
+    function MpApiService(http) {
+        this.http = http;
+    }
+    /** POST: add a new hero to the database */
+    MpApiService.prototype.addReg = function (regReq) {
+        return this.http.post("http://localhost:8080/register", regReq, httpOptions)
+            .pipe(
+        //catchError(this.handleError('addHero', hero))
+        );
+    };
+    MpApiService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+            providedIn: 'root'
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]])
+    ], MpApiService);
+    return MpApiService;
+}());
+
+var httpOptions = {
+    headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+        'Content-Type': 'application/json'
+    })
+};
+
+
+/***/ }),
+
 /***/ "./src/app/navbar/navbar.component.html":
 /*!**********************************************!*\
   !*** ./src/app/navbar/navbar.component.html ***!
@@ -228,7 +350,7 @@ var AppModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-expand-lg navbar-light bg-light\">\n  <a class=\"navbar-brand\" href=\"#\">MahanyaRam Photography</a>\n  <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\" aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n    <span class=\"navbar-toggler-icon\"></span>\n  </button>\n\n  <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\n    <ul class=\"navbar-nav mr-auto\">\n      <li class=\"nav-item active\">\n        <a class=\"nav-link\" href=\"#\">Home <span class=\"sr-only\">(current)</span></a>\n      </li>\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" href=\"#\">Albums</a>\n      </li>\n\n    </ul>\n    <form class=\"form-inline my-2 my-lg-0\">\n      <input class=\"form-control mr-sm-2\" type=\"search\" placeholder=\"Search\" aria-label=\"Search\">\n      <button class=\"btn btn-outline-success my-2 my-sm-0\" type=\"submit\">Search</button>\n    </form>\n  </div>\n</nav>"
+module.exports = "<nav class=\"navbar navbar-expand-lg navbar-light bg-light\">\n  <a class=\"navbar-brand\" href=\"#\">MahanyaRam Photography</a>\n  <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\" aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n    <span class=\"navbar-toggler-icon\"></span>\n  </button>\n\n  <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\n    <ul class=\"navbar-nav mr-auto\">\n      <li class=\"nav-item active\">\n        <a class=\"nav-link\" href=\"#\">Home </a>\n      </li>\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" href=\"#\">Albums</a>\n      </li>\n      <li class=\"nav-item active\">\n          <a class=\"nav-link\" routerLink=\"/register\" routerLinkActive=\"active current\">Register</a>\n        </li>\n        <li class=\"nav-item active\">\n            <a class=\"nav-link\" routerLink=\"/login\" routerLinkActive=\"active current\">Login</a>\n          </li>  \n\n    </ul>\n    <form class=\"form-inline my-2 my-lg-0\">\n      <input class=\"form-control mr-sm-2\" type=\"search\" placeholder=\"Search\" aria-label=\"Search\">\n      <button class=\"btn btn-outline-success my-2 my-sm-0\" type=\"submit\">Search</button>\n    </form>\n  </div>\n</nav>"
 
 /***/ }),
 
@@ -328,6 +450,176 @@ var ProfilepicComponent = /** @class */ (function () {
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
     ], ProfilepicComponent);
     return ProfilepicComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/register/Mpuser.ts":
+/*!************************************!*\
+  !*** ./src/app/register/Mpuser.ts ***!
+  \************************************/
+/*! exports provided: Mpuser */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Mpuser", function() { return Mpuser; });
+var Mpuser = /** @class */ (function () {
+    function Mpuser(create_time, email, firstname, lastlogin, lastname, password, phone, username) {
+        this.create_time = create_time;
+        this.email = email;
+        this.firstname = firstname;
+        this.lastlogin = lastlogin;
+        this.lastname = lastname;
+        this.password = password;
+        this.phone = phone;
+        this.username = username;
+    }
+    return Mpuser;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/register/RegistrationRequest.ts":
+/*!*************************************************!*\
+  !*** ./src/app/register/RegistrationRequest.ts ***!
+  \*************************************************/
+/*! exports provided: RegistrationRequest */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RegistrationRequest", function() { return RegistrationRequest; });
+var RegistrationRequest = /** @class */ (function () {
+    function RegistrationRequest(mpuser) {
+        this.mpuser = mpuser;
+    }
+    return RegistrationRequest;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/register/RegistrationResponse.ts":
+/*!**************************************************!*\
+  !*** ./src/app/register/RegistrationResponse.ts ***!
+  \**************************************************/
+/*! exports provided: RegistrationResponse */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RegistrationResponse", function() { return RegistrationResponse; });
+var RegistrationResponse = /** @class */ (function () {
+    function RegistrationResponse() {
+    }
+    return RegistrationResponse;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/register/ServiceStatus.ts":
+/*!*******************************************!*\
+  !*** ./src/app/register/ServiceStatus.ts ***!
+  \*******************************************/
+/*! exports provided: ServiceStatus */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ServiceStatus", function() { return ServiceStatus; });
+var ServiceStatus = /** @class */ (function () {
+    function ServiceStatus() {
+    }
+    return ServiceStatus;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/register/register.component.html":
+/*!**************************************************!*\
+  !*** ./src/app/register/register.component.html ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"container\">\n   <br>\n    <form (ngSubmit)=\"onSubmit()\" #regstore=\"ngForm\">\n        <div class=\"form-group\">\n            <label for=\"email\">Email</label>\n            <input ngModel name=\"email\" #domain=\"ngModel\" class=\"form-control\" id=\"email\" [(ngModel)]=\"model.email \">\n            <br>\n        </div>\n        <div class=\"form-group\">\n            <label for=\"username\">UserName</label>\n            <input ngModel name=\"username\" #userId=\"ngModel\" class=\"form-control\"   id=\"username\" [(ngModel)]=\"model.username\">\n            <br>\n          \n        </div>\n        <div class=\"form-group\">\n            <label for=\"password\">Password</label>\n            <input ngModel name=\"password\" type=\"password\" #password=\"ngModel\" class=\"form-control\" id=\"password\" [(ngModel)]=\"model.password\">\n            <br>\n        </div>\n        \n            <div class=\"form-group\">\n                <label for=\"firstname\">FirstName</label>\n                <input ngModel name=\"firstname\" type=\"firstname\" #password=\"ngModel\" class=\"form-control\" id=\"firstname\" [(ngModel)]=\"model.firstname\">\n                <br>\n            </div>\n            \n                <div class=\"form-group\">\n                    <label for=\"lastname\">LastName</label>\n                    <input ngModel name=\"lastname\" type=\"lastname\" #password=\"ngModel\" class=\"form-control\" id=\"lastname\" [(ngModel)]=\"model.lastname\">\n                    <br>\n                </div>\n                \n                    <div class=\"form-group\">\n                        <label for=\"phone\">Phone</label>\n                        <input ngModel name=\"phone\" type=\"phone\" #password=\"ngModel\" class=\"form-control\" id=\"phone\" [(ngModel)]=\"model.phone\">\n                        <br>\n                    </div>\n                    <div>\n                        <button type=\"button\" class=\"btn btn-primary\" (click)=\"registeruser(); regstore.reset()\" [routerLink]=\"['/login']\">Register</button>\n\n                        <!-- <p>\n                            {{model | json}}\n                        </p> -->\n                    </div>\n\n    </form>\n    </div>\n   \n    <div>\n      <p>\n        {{serviceStatus.message}}\n      </p>\n    </div>"
+
+/***/ }),
+
+/***/ "./src/app/register/register.component.scss":
+/*!**************************************************!*\
+  !*** ./src/app/register/register.component.scss ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3JlZ2lzdGVyL3JlZ2lzdGVyLmNvbXBvbmVudC5zY3NzIn0= */"
+
+/***/ }),
+
+/***/ "./src/app/register/register.component.ts":
+/*!************************************************!*\
+  !*** ./src/app/register/register.component.ts ***!
+  \************************************************/
+/*! exports provided: RegisterComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RegisterComponent", function() { return RegisterComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _Mpuser__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Mpuser */ "./src/app/register/Mpuser.ts");
+/* harmony import */ var _mp_api_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../mp-api.service */ "./src/app/mp-api.service.ts");
+/* harmony import */ var _RegistrationRequest__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./RegistrationRequest */ "./src/app/register/RegistrationRequest.ts");
+/* harmony import */ var _RegistrationResponse__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./RegistrationResponse */ "./src/app/register/RegistrationResponse.ts");
+/* harmony import */ var _ServiceStatus__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./ServiceStatus */ "./src/app/register/ServiceStatus.ts");
+
+
+
+
+
+
+
+var RegisterComponent = /** @class */ (function () {
+    function RegisterComponent(mpservice) {
+        this.mpservice = mpservice;
+        this.regResponse1 = new _RegistrationResponse__WEBPACK_IMPORTED_MODULE_5__["RegistrationResponse"]();
+        this.serviceStatus = new _ServiceStatus__WEBPACK_IMPORTED_MODULE_6__["ServiceStatus"]();
+        this.model = new _Mpuser__WEBPACK_IMPORTED_MODULE_2__["Mpuser"](new Date(), "email@gmail.com", "firstname", new Date(), "lastname", "******", "phone", "username");
+    }
+    RegisterComponent.prototype.ngOnInit = function () {
+    };
+    RegisterComponent.prototype.registeruser = function () {
+        var _this = this;
+        this.mpuser = this.model;
+        this.regRequest = new _RegistrationRequest__WEBPACK_IMPORTED_MODULE_4__["RegistrationRequest"](this.mpuser);
+        console.log(this.regRequest);
+        this.mpservice.addReg(this.regRequest)
+            .subscribe(function (regResponse) {
+            _this.regResponse1 = regResponse;
+            _this.serviceStatus = _this.regResponse1.serviceStatus;
+        });
+    };
+    RegisterComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'register',
+            template: __webpack_require__(/*! ./register.component.html */ "./src/app/register/register.component.html"),
+            styles: [__webpack_require__(/*! ./register.component.scss */ "./src/app/register/register.component.scss")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_mp_api_service__WEBPACK_IMPORTED_MODULE_3__["MpApiService"]])
+    ], RegisterComponent);
+    return RegisterComponent;
 }());
 
 

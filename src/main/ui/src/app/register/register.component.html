@@ -36,7 +36,7 @@
                         <br>
                     </div>
                     <div>
-                        <button type="button" class="btn btn-primary" (click)="registeruser(); regstore.reset()" routerLink="/login">Register</button>
+                        <button type="button" class="btn btn-primary" (click)="registeruser(); regstore.reset()">Register</button>
 
                         <!-- <p>
                             {{model | json}}
@@ -46,3 +46,11 @@
     </form>
     </div>
    
+    <div>
+      <p>
+        {{serviceStatus.message}}
+      </p>
+    </div>
+
+
+    

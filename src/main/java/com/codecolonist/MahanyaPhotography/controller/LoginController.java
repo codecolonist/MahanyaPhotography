@@ -3,6 +3,7 @@ package com.codecolonist.MahanyaPhotography.controller;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -14,6 +15,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.codecolonist.MahanyaPhotography.Exception.RestResponseEntityExceptionHandler;
+import com.codecolonist.MahanyaPhotography.Repository.MP_User;
+import com.codecolonist.MahanyaPhotography.Repository.MpUserRepository;
 import com.codecolonist.MahanyaPhotography.bean.LoginRequest;
 import com.codecolonist.MahanyaPhotography.bean.LoginResponse;
 
@@ -25,6 +28,9 @@ public class LoginController extends  RestResponseEntityExceptionHandler{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
+	@Autowired
+	private MpUserRepository mpuserrepo;
 
 	
 	@RequestMapping(value="/userLogin",method=RequestMethod.POST,consumes=MediaType.APPLICATION_JSON_VALUE,produces=MediaType.APPLICATION_JSON_VALUE)
@@ -33,12 +39,15 @@ public class LoginController extends  RestResponseEntityExceptionHandler{
 		 
 		
 		LoginResponse loginResponse = new LoginResponse();
+		MP_User mpuser = new MP_User();
+		
+		mpuser= mpuserrepo.findUserByEmail(loginRequest.getEmail());
 		
 		
-		if(loginRequest.getPassWord().equalsIgnoreCase("password")  ){
+		if(loginRequest.getPassword().equalsIgnoreCase(mpuser.getPassword())  ){
 			
-			loginResponse.setFirstName("RamkishoreRao");
-			loginResponse.setLastName("Gujjeti");
+			loginResponse.setFirstName(mpuser.getFirstname());
+			loginResponse.setLastName(mpuser.getLastname());
 			loginResponse.setServiceMessage("Welcome to MahanyaRam Photography");
 			return new ResponseEntity<>(loginResponse,HttpStatus.OK);
 			

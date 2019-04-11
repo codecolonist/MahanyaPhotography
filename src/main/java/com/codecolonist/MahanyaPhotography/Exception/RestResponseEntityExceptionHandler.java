@@ -15,9 +15,9 @@ import com.codecolonist.MahanyaPhotography.bean.ServiceStatus;
 public class RestResponseEntityExceptionHandler  {
 	
 	
-	@ExceptionHandler(CustomException.class)
+	@ExceptionHandler(LoginErrorException.class)
 	public final ResponseEntity<Object> CustomException(
-			CustomException ex,  WebRequest request) {
+			LoginErrorException ex,  WebRequest request) {
 	    String error = "No handler found for " ;
 	 
 	    ServiceStatus apiError = new ServiceStatus(HttpStatus.NOT_FOUND, ex.getLocalizedMessage(), error);
