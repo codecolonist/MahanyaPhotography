@@ -190,6 +190,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _home_home_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./home/home.component */ "./src/app/home/home.component.ts");
+
 
 
 
@@ -219,7 +221,8 @@ var AppModule = /** @class */ (function () {
                 _profilepic_profilepic_component__WEBPACK_IMPORTED_MODULE_7__["ProfilepicComponent"],
                 _albums_albums_component__WEBPACK_IMPORTED_MODULE_8__["AlbumsComponent"],
                 _login_login_component__WEBPACK_IMPORTED_MODULE_9__["LoginComponent"],
-                _register_register_component__WEBPACK_IMPORTED_MODULE_10__["RegisterComponent"]
+                _register_register_component__WEBPACK_IMPORTED_MODULE_10__["RegisterComponent"],
+                _home_home_component__WEBPACK_IMPORTED_MODULE_14__["HomeComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
@@ -241,6 +244,62 @@ var AppModule = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/home/home.component.html":
+/*!******************************************!*\
+  !*** ./src/app/home/home.component.html ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n  home works!\n</p>\n"
+
+/***/ }),
+
+/***/ "./src/app/home/home.component.scss":
+/*!******************************************!*\
+  !*** ./src/app/home/home.component.scss ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2hvbWUvaG9tZS5jb21wb25lbnQuc2NzcyJ9 */"
+
+/***/ }),
+
+/***/ "./src/app/home/home.component.ts":
+/*!****************************************!*\
+  !*** ./src/app/home/home.component.ts ***!
+  \****************************************/
+/*! exports provided: HomeComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HomeComponent", function() { return HomeComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+
+
+var HomeComponent = /** @class */ (function () {
+    function HomeComponent() {
+    }
+    HomeComponent.prototype.ngOnInit = function () {
+    };
+    HomeComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-home',
+            template: __webpack_require__(/*! ./home.component.html */ "./src/app/home/home.component.html"),
+            styles: [__webpack_require__(/*! ./home.component.scss */ "./src/app/home/home.component.scss")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+    ], HomeComponent);
+    return HomeComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/login/login.component.html":
 /*!********************************************!*\
   !*** ./src/app/login/login.component.html ***!
@@ -248,7 +307,7 @@ var AppModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n<div class=\"container\">\n  <br>\n<h3>Login to MahanyaRam Photography</h3>\n<br>\n<form>\n    <div class=\"form-group\">\n      <label for=\"exampleInputEmail1\">Email address</label>\n      <input type=\"email\" class=\"form-control\" id=\"exampleInputEmail1\" aria-describedby=\"emailHelp\" placeholder=\"Enter email\">\n      <small id=\"emailHelp\" class=\"form-text text-muted\">We'll never share your email with anyone else.</small>\n    </div>\n    <div class=\"form-group\">\n      <label for=\"exampleInputPassword1\">Password</label>\n      <input type=\"password\" class=\"form-control\" id=\"exampleInputPassword1\" placeholder=\"Password\">\n    </div>\n    <div class=\"form-group form-check\">\n      <input type=\"checkbox\" class=\"form-check-input\" id=\"exampleCheck1\">\n      <label class=\"form-check-label\" for=\"exampleCheck1\">Check me out</label>\n    </div>\n    <button type=\"submit\" class=\"btn btn-primary\">Submit</button>\n  </form>\n\n</div>"
+module.exports = "\n<div class=\"container\">\n  <br>\n<h3>Login to MahanyaRam Photography</h3>\n<br>\n<form (ngSubmit)=\"onSubmit()\" #loginStore=\"ngForm\">\n    <div class=\"form-group\">\n        <label for=\"email\">Email</label>\n        <input ngModel name=\"email\" type =\"email\" ngModel class=\"form-control\" id=\"email\" [(ngModel)]=\"model.email\">\n        <br>\n    </div>\n    <div class=\"form-group\">\n        <label for=\"password\">Password</label>\n        <input ngModel name=\"password\" type=\"password\" #password=\"ngModel\" class=\"form-control\" id=\"password\" [(ngModel)]=\"model.password\">\n        <br>\n    </div>\n    <button  type=\"button\" class=\"btn btn-primary\" (click)=\"userLogin(); loginStore.reset()\" [routerLink] =\"['/home']\">Login</button>\n  </form>\n\n</div>"
 
 /***/ }),
 
@@ -267,20 +326,49 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*!******************************************!*\
   !*** ./src/app/login/login.component.ts ***!
   \******************************************/
-/*! exports provided: LoginComponent */
+/*! exports provided: logRequest, loginResponse, LoginComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "logRequest", function() { return logRequest; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "loginResponse", function() { return loginResponse; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginComponent", function() { return LoginComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _mp_api_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../mp-api.service */ "./src/app/mp-api.service.ts");
 
+
+
+var logRequest = /** @class */ (function () {
+    function logRequest(email, password) {
+        this.email = email;
+        this.password = password;
+    }
+    return logRequest;
+}());
+
+var loginResponse = /** @class */ (function () {
+    function loginResponse() {
+    }
+    return loginResponse;
+}());
 
 var LoginComponent = /** @class */ (function () {
-    function LoginComponent() {
+    function LoginComponent(mpapiservice) {
+        this.mpapiservice = mpapiservice;
+        this.model = new logRequest("example@gmail.com", "********");
     }
     LoginComponent.prototype.ngOnInit = function () {
+    };
+    LoginComponent.prototype.userLogin = function () {
+        var _this = this;
+        this.logreq = this.model;
+        console.log(this.logreq);
+        this.mpapiservice.postcall("userLogin", this.logreq).subscribe(function (res) {
+            _this.logres = res;
+            console.log(_this.logres);
+        });
     };
     LoginComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -288,7 +376,7 @@ var LoginComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./login.component.html */ "./src/app/login/login.component.html"),
             styles: [__webpack_require__(/*! ./login.component.scss */ "./src/app/login/login.component.scss")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_mp_api_service__WEBPACK_IMPORTED_MODULE_2__["MpApiService"]])
     ], LoginComponent);
     return LoginComponent;
 }());
@@ -319,8 +407,9 @@ var MpApiService = /** @class */ (function () {
         this.http = http;
     }
     /** POST: add a new hero to the database */
-    MpApiService.prototype.addReg = function (regReq) {
-        return this.http.post("http://localhost:8080/register", regReq, httpOptions)
+    MpApiService.prototype.postcall = function (path, Req) {
+        console.log(Req);
+        return this.http.post("http://localhost:8080/" + path, Req, httpOptions)
             .pipe(
         //catchError(this.handleError('addHero', hero))
         );
@@ -552,7 +641,7 @@ var ServiceStatus = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n   <br>\n    <form (ngSubmit)=\"onSubmit()\" #regstore=\"ngForm\">\n        <div class=\"form-group\">\n            <label for=\"email\">Email</label>\n            <input ngModel name=\"email\" #domain=\"ngModel\" class=\"form-control\" id=\"email\" [(ngModel)]=\"model.email \">\n            <br>\n        </div>\n        <div class=\"form-group\">\n            <label for=\"username\">UserName</label>\n            <input ngModel name=\"username\" #userId=\"ngModel\" class=\"form-control\"   id=\"username\" [(ngModel)]=\"model.username\">\n            <br>\n          \n        </div>\n        <div class=\"form-group\">\n            <label for=\"password\">Password</label>\n            <input ngModel name=\"password\" type=\"password\" #password=\"ngModel\" class=\"form-control\" id=\"password\" [(ngModel)]=\"model.password\">\n            <br>\n        </div>\n        \n            <div class=\"form-group\">\n                <label for=\"firstname\">FirstName</label>\n                <input ngModel name=\"firstname\" type=\"firstname\" #password=\"ngModel\" class=\"form-control\" id=\"firstname\" [(ngModel)]=\"model.firstname\">\n                <br>\n            </div>\n            \n                <div class=\"form-group\">\n                    <label for=\"lastname\">LastName</label>\n                    <input ngModel name=\"lastname\" type=\"lastname\" #password=\"ngModel\" class=\"form-control\" id=\"lastname\" [(ngModel)]=\"model.lastname\">\n                    <br>\n                </div>\n                \n                    <div class=\"form-group\">\n                        <label for=\"phone\">Phone</label>\n                        <input ngModel name=\"phone\" type=\"phone\" #password=\"ngModel\" class=\"form-control\" id=\"phone\" [(ngModel)]=\"model.phone\">\n                        <br>\n                    </div>\n                    <div>\n                        <button type=\"button\" class=\"btn btn-primary\" (click)=\"registeruser(); regstore.reset()\" [routerLink]=\"['/login']\">Register</button>\n\n                        <!-- <p>\n                            {{model | json}}\n                        </p> -->\n                    </div>\n\n    </form>\n    </div>\n   \n    <div>\n      <p>\n        {{serviceStatus.message}}\n      </p>\n    </div>"
+module.exports = "<div class=\"container\">\n   <br>\n    <form (ngSubmit)=\"onSubmit()\" #regstore=\"ngForm\">\n        <div class=\"form-group\">\n            <label for=\"email\">Email</label>\n            <input ngModel name=\"email\" #domain=\"ngModel\" class=\"form-control\" id=\"email\" [(ngModel)]=\"model.email \">\n            <br>\n        </div>\n        <div class=\"form-group\">\n            <label for=\"username\">UserName</label>\n            <input ngModel name=\"username\" #userId=\"ngModel\" class=\"form-control\"   id=\"username\" [(ngModel)]=\"model.username\">\n            <br>\n          \n        </div>\n        <div class=\"form-group\">\n            <label for=\"password\">Password</label>\n            <input ngModel name=\"password\" type=\"password\" #password=\"ngModel\" class=\"form-control\" id=\"password\" [(ngModel)]=\"model.password\">\n            <br>\n        </div>\n        \n            <div class=\"form-group\">\n                <label for=\"firstname\">FirstName</label>\n                <input ngModel name=\"firstname\" type=\"firstname\" #password=\"ngModel\" class=\"form-control\" id=\"firstname\" [(ngModel)]=\"model.firstname\">\n                <br>\n            </div>\n            \n                <div class=\"form-group\">\n                    <label for=\"lastname\">LastName</label>\n                    <input ngModel name=\"lastname\" type=\"lastname\" #password=\"ngModel\" class=\"form-control\" id=\"lastname\" [(ngModel)]=\"model.lastname\">\n                    <br>\n                </div>\n                \n                    <div class=\"form-group\">\n                        <label for=\"phone\">Phone</label>\n                        <input ngModel name=\"phone\" type=\"phone\" #password=\"ngModel\" class=\"form-control\" id=\"phone\" [(ngModel)]=\"model.phone\">\n                        <br>\n                    </div>\n                    <div>\n                        <button type=\"button\" class=\"btn btn-primary\" (click)=\"registeruser(); regstore.reset()\">Register</button>\n\n                        <!-- <p>\n                            {{model | json}}\n                        </p> -->\n                    </div>\n\n    </form>\n    </div>\n   \n    <div>\n      <p>\n        {{serviceStatus.message}}\n      </p>\n    </div>\n\n\n    "
 
 /***/ }),
 
@@ -584,6 +673,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _RegistrationRequest__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./RegistrationRequest */ "./src/app/register/RegistrationRequest.ts");
 /* harmony import */ var _RegistrationResponse__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./RegistrationResponse */ "./src/app/register/RegistrationResponse.ts");
 /* harmony import */ var _ServiceStatus__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./ServiceStatus */ "./src/app/register/ServiceStatus.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+
 
 
 
@@ -592,8 +683,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var RegisterComponent = /** @class */ (function () {
-    function RegisterComponent(mpservice) {
+    function RegisterComponent(mpservice, router) {
         this.mpservice = mpservice;
+        this.router = router;
         this.regResponse1 = new _RegistrationResponse__WEBPACK_IMPORTED_MODULE_5__["RegistrationResponse"]();
         this.serviceStatus = new _ServiceStatus__WEBPACK_IMPORTED_MODULE_6__["ServiceStatus"]();
         this.model = new _Mpuser__WEBPACK_IMPORTED_MODULE_2__["Mpuser"](new Date(), "email@gmail.com", "firstname", new Date(), "lastname", "******", "phone", "username");
@@ -605,10 +697,13 @@ var RegisterComponent = /** @class */ (function () {
         this.mpuser = this.model;
         this.regRequest = new _RegistrationRequest__WEBPACK_IMPORTED_MODULE_4__["RegistrationRequest"](this.mpuser);
         console.log(this.regRequest);
-        this.mpservice.addReg(this.regRequest)
+        this.mpservice.postcall("register", this.regRequest)
             .subscribe(function (regResponse) {
             _this.regResponse1 = regResponse;
             _this.serviceStatus = _this.regResponse1.serviceStatus;
+            if (_this.serviceStatus.status == "ACCEPTED") {
+                _this.router.navigate(["/login"]);
+            }
         });
     };
     RegisterComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -617,7 +712,7 @@ var RegisterComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./register.component.html */ "./src/app/register/register.component.html"),
             styles: [__webpack_require__(/*! ./register.component.scss */ "./src/app/register/register.component.scss")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_mp_api_service__WEBPACK_IMPORTED_MODULE_3__["MpApiService"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_mp_api_service__WEBPACK_IMPORTED_MODULE_3__["MpApiService"], _angular_router__WEBPACK_IMPORTED_MODULE_7__["Router"]])
     ], RegisterComponent);
     return RegisterComponent;
 }());

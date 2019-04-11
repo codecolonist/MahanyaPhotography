@@ -11,16 +11,22 @@ import { RegistrationResponse } from './register/RegistrationResponse';
   providedIn: 'root'
 })
 export class MpApiService {
+ 
 
   constructor(private http: HttpClient) { }
 
+   
+
   /** POST: add a new hero to the database */
-addReg (regReq: RegistrationRequest): Observable<RegistrationResponse> {
-  return this.http.post<RegistrationResponse>("http://localhost:8080/register", regReq, httpOptions)
+postcall (path: string,Req: any): Observable<any> {
+   console.log(Req);
+  return this.http.post<any>("http://localhost:8080/"+path, Req, httpOptions)
     .pipe(
       //catchError(this.handleError('addHero', hero))
     );
 }
+
+
   
 }
 
