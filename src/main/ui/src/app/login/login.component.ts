@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {MpApiService} from '../mp-api.service'
+import { Router } from '@angular/router';
 
 export class logRequest {
 
@@ -30,7 +31,7 @@ export class LoginComponent implements OnInit {
    logres: loginResponse;
    isLogin: boolean;
 
-  constructor(private mpapiservice : MpApiService) { }
+  constructor(private mpapiservice : MpApiService, private router:Router) { }
 
   ngOnInit() {
   }
@@ -49,6 +50,12 @@ export class LoginComponent implements OnInit {
 
           this.logres=res;
           console.log(this.logres);
+
+          if(this.logres.serviceMessage="Welcome"){
+            this.router.navigate(["/home",this.logres.lastName]);
+          }
+
+           
         }
 
      )

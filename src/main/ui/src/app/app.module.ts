@@ -18,7 +18,9 @@ import {IconsModule} from './icons/icons.module';
 const appRoutes: Routes = [
 
   { path: 'register', component: RegisterComponent },
-  { path: 'login', component: LoginComponent}
+  { path: 'login', component: LoginComponent},
+  { path: 'home', component: HomeComponent},
+  {path:  'home/:lastName',component:HomeComponent}
 ];
 
 @NgModule({

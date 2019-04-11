@@ -48,7 +48,7 @@ public class LoginController extends  RestResponseEntityExceptionHandler{
 			
 			loginResponse.setFirstName(mpuser.getFirstname());
 			loginResponse.setLastName(mpuser.getLastname());
-			loginResponse.setServiceMessage("Welcome to MahanyaRam Photography");
+			loginResponse.setServiceMessage("Welcome");
 			return new ResponseEntity<>(loginResponse,HttpStatus.OK);
 			
 		}else {
