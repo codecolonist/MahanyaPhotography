@@ -14,6 +14,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import {IconsModule} from './icons/icons.module';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatChipsModule} from '@angular/material/chips';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatButtonModule} from '@angular/material/button';
+import {MatInputModule} from '@angular/material/input';
+
 
 const appRoutes: Routes = [
 
@@ -41,6 +48,12 @@ const appRoutes: Routes = [
     HttpClientModule,
     BrowserAnimationsModule,
     IconsModule,
+    MatToolbarModule,
+    MatFormFieldModule,
+    MatChipsModule,
+    MatGridListModule,
+    MatButtonModule,
+    MatInputModule,
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: true } // <-- debugging purposes only

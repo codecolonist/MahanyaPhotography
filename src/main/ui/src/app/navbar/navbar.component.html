@@ -1,28 +1,14 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">MahanyaRam Photography</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Albums</a>
-      </li>
-      <li class="nav-item active">
-          <a class="nav-link" routerLink="/register" routerLinkActive="active current">Register</a>
-        </li>
-        <li class="nav-item active">
-            <a class="nav-link" routerLink="/login" routerLinkActive="active current">Login</a>
-          </li>  
+<mat-toolbar color="primary">
 
-    </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
-  </div>
-</nav>
+  <mat-chip-list>
+    <mat-chip color="primary" selected routerLink="/home" routerLinkActive="active current">{{hometitle}}</mat-chip>
+    <mat-chip color="primary" selected routerLink="/home" routerLinkActive="active current">Home</mat-chip>
+    <mat-chip color="primary" selected routerLink="/albums" routerLinkActive="active current">Albums</mat-chip>
+    <mat-chip color="primary" routerLink="/register" routerLinkActive="active current" selected> Register</mat-chip>
+    <mat-chip color="primary" selected routerLink="/login" routerLinkActive="active current" > Login</mat-chip>
+    <mat-chip class="logout" color="primary" >Logout</mat-chip>
+  </mat-chip-list>
+
+</mat-toolbar>
+
