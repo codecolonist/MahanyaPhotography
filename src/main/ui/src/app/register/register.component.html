@@ -19,19 +19,19 @@
                                </mat-error>
                         </mat-form-field>
                         <mat-form-field>
-                         <input matInput placeholder="UserName" ngModel name="username" #username=ngModel [(ngModel)]="model.username">
+                         <input matInput placeholder="UserName" ngModel name="username" #username=ngModel [(ngModel)]="model.username" required>
                         </mat-form-field>
                         <mat-form-field>
-                         <input matInput placeholder="Password" type="password" ngModel name="password" #password=ngModel [(ngModel)]="model.password">
+                         <input matInput placeholder="Password" type="password" ngModel name="password" #password=ngModel [(ngModel)]="model.password" required>
                         </mat-form-field>
                         <mat-form-field>
-                                <input matInput placeholder="FirstName" type="text" ngModel name="firstname" #firstname=ngModel [(ngModel)]="model.firstname">
+                                <input matInput placeholder="FirstName" type="text" ngModel name="firstname" #firstname=ngModel [(ngModel)]="model.firstname" required>
                         </mat-form-field>
                          <mat-form-field>
-                                <input matInput placeholder="LastName" type="text" ngModel name="lastname" #lastname=ngModel [(ngModel)]="model.lastname">
+                                <input matInput placeholder="LastName" type="text" ngModel name="lastname" #lastname=ngModel [(ngModel)]="model.lastname" required>
                         </mat-form-field>
                          <mat-form-field>
-                                <input matInput placeholder="phone" type="text" ngModel name="phone" #phone=ngModel [(ngModel)]="model.phone">
+                                <input matInput placeholder="phone" type="text" ngModel name="phone" #phone=ngModel [(ngModel)]="model.phone" required>
                          </mat-form-field>
                 
                        

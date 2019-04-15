@@ -14,6 +14,10 @@ export class HomeComponent implements OnInit {
 
   title="Welcome to MahanyaRam Photography ";
 
+ images1="assets/Images/1.jpg";
+ images2="assets/Images/2.jpg";
+ images3="assets/Images/3.jpg";
+
   ngOnInit() {
 
     this.route.paramMap.subscribe(
